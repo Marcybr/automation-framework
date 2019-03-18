@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Suite Web de acesso a browsers">
+   <test name = "Acessar a pagina da google">
+      <classes>
+         <class name = "br.com.VH.framework.tests.web.AccessGooglePage"/>
+      </classes>
+   </test>
+</suite>	
