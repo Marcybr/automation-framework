@@ -22,7 +22,19 @@ public class Constants {
 	public static String SUCCESS = "SUCCESS";
 	public static String FAIL = "FAIL";
 	public static String UNITTEST = "UNITTEST";
-	public static String CHROMEDRIVER_EXE = "./utils/chromedriver.exe";
+	
+	public static String CHROMEDRIVER_EXE = "./utils/drivers/windows/chromedriver.exe";
+	public static String CHROMEDRIVER_MAC = "./utils/drivers/mac/chromedriver";
+	public static String CHROMEDRIVER_LINUX = "./utils/drivers/linux/chromedriver";
+	
+	public static String ADB_PATH_WIN = "C:\\Program Files\\android-sdk-windows\\platform-tools\\";
+	public static String ADB_PATH_MAC = "/Library/Android/sdk/platform-tools/";
+	public static String ADB_PATH_LINUX = "/Library/Android/sdk/-tools/";
+	
+	public static String EMULATOR_PATH_WIN = "C:\\Program Files\\android-sdk-windows\\tools\\";
+	public static String EMULATOR_PATH_MAC = "/Library/Android/sdk/tools/";
+	public static String EMULATOR_PATH_LINUX = "/Library/Android/sdk/tools/";
+	
 	public static int NUMERO_TENTATIVAS = 5;
 
 	public static String NEW = "NEW";

@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import br.com.VH.framework.helper.Utils;
-import br.com.VH.framework.tests.web.pageObjects.GooglePage;
+import br.com.VH.framework.tests.pageObjects.GoogleHome;
 
 public class AccessGooglePage {
 
@@ -46,7 +46,7 @@ public class AccessGooglePage {
 	@Test
 	public void accessGooglePage() throws IOException {
 		// Instantiate pages and execute test
-		GooglePage gp = PageFactory.initElements(driver, GooglePage.class);
+		GoogleHome gp = PageFactory.initElements(driver, GoogleHome.class);
 		gp.getDriver().get(url);
 		gp.clickOnSearchField();
 		gp.insertValueOnSearchField(search);

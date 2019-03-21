@@ -65,6 +65,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import br.com.VH.framework.config.Constants;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -114,7 +115,7 @@ public class Utils {
 		g2d.dispose();
 		return img;
 	}
-	
+
 	public static BufferedImage joinVerticallyBufferedImages(List<BufferedImage> imgs) {
 		int width = 0;
 		int height = 0;
@@ -134,7 +135,7 @@ public class Utils {
 		g2.fillRect(0, 0, width, height);
 		//draw image
 		g2.setColor(oldColor);
-		
+
 		int x = 0;
 		int y = 0;
 		for (BufferedImage bufferedImage : imgs) {
@@ -146,7 +147,7 @@ public class Utils {
 		g2.dispose();
 		return joinedImage;
 	}
-	
+
 	public static BufferedImage joinHorizontallyBufferedImages(List<BufferedImage> imgs) {
 		int offset = 20;
 		int width = 0;
@@ -165,7 +166,7 @@ public class Utils {
 		g2.fillRect(0, 0, width, height);
 		//draw image
 		g2.setColor(oldColor);
-		
+
 		int x = 0;
 		int y = 0;
 		for (BufferedImage bufferedImage : imgs) {
@@ -175,13 +176,13 @@ public class Utils {
 		g2.dispose();
 		return joinedImage;
 	}
-	
+
 	private static String[] splitAtCharacterCountForImageTranslation(String content){
 		content = content.replaceAll("(.{80})", "$1|");
 		String[] split = content.split("\\|");
-	    return split;
+		return split;
 	}
-	
+
 	public static String getDataHora(String format){
 
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -192,41 +193,41 @@ public class Utils {
 	}
 
 	public static void trustAllHosts() {
-        // Create a trust manager that does not validate certificate chains
-        TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
-            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                return new java.security.cert.X509Certificate[]{};
-            }
+		// Create a trust manager that does not validate certificate chains
+		TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
+			public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+				return new java.security.cert.X509Certificate[]{};
+			}
 
-            public void checkClientTrusted(X509Certificate[] chain,
-                                           String authType) throws CertificateException {
-            }
+			public void checkClientTrusted(X509Certificate[] chain,
+					String authType) throws CertificateException {
+			}
 
-            public void checkServerTrusted(X509Certificate[] chain,
-                                           String authType) throws CertificateException {
-            }
-        }};
+			public void checkServerTrusted(X509Certificate[] chain,
+					String authType) throws CertificateException {
+			}
+		}};
 
-        // Install the all-trusting trust manager
-        try {
-            SSLContext sc = SSLContext.getInstance("TLS");
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-            HttpsURLConnection
-                    .setDefaultSSLSocketFactory(sc.getSocketFactory());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-	
+		// Install the all-trusting trust manager
+		try {
+			SSLContext sc = SSLContext.getInstance("TLS");
+			sc.init(null, trustAllCerts, new java.security.SecureRandom());
+			HttpsURLConnection
+			.setDefaultSSLSocketFactory(sc.getSocketFactory());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static String formatAttributeValue(String name, String localName) {
 		return new StringBuilder().append(name).append('_').append(localName).toString().toUpperCase().replace('-', '_');
 	}
 
-    final static HostnameVerifier DO_NOT_VERIFY = new HostnameVerifier() {
-        public boolean verify(String hostname, SSLSession session) {
-            return true;
-        }
-    };
+	final static HostnameVerifier DO_NOT_VERIFY = new HostnameVerifier() {
+		public boolean verify(String hostname, SSLSession session) {
+			return true;
+		}
+	};
 
 	public String transformMillisToTime(long millis){
 
@@ -236,7 +237,7 @@ public class Utils {
 
 		return hms;
 	}
-	
+
 	/**
 	 * Fabrica<BR>
 	 *
@@ -246,9 +247,9 @@ public class Utils {
 	 * @author Gabriel Aguido Fraga<BR>
 	 */
 	public static String calculaPercentual(double valor, double total) {
-		
+
 		DecimalFormat fmt = new DecimalFormat("0.00");
-				
+
 		try {
 
 			return fmt.format((valor * 100) / total);
@@ -258,7 +259,7 @@ public class Utils {
 			return "0,00";
 		}
 	}
-	
+
 	/**
 	 * Fabrica<BR>
 	 *
@@ -268,17 +269,17 @@ public class Utils {
 	 * @author Gabriel Aguido Fraga<BR>
 	 */
 	public static String removeQuebraLinha (String s) {
-		
+
 		if (StringUtils.isNotBlank(s)) {
-			
+
 			s = s.replaceAll("\r", ""); 
 			s = s.replaceAll("\t", "");
 			s = s.replaceAll("\n", "");
 		}
-		
+
 		return s;
 	}
-	
+
 	/**
 	 * 
 	 * @author Gabriel Aguido Fraga
@@ -305,81 +306,157 @@ public class Utils {
 	}
 
 	public static WebDriver initializeChromeDriver() throws Exception {
-//		WebDriver driver = new ChromeDriver(new DesiredCapabilities().chrome());
-//		driver.manage().window().maximize();
-//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//		return driver;
-		
-		File file = new File(Constants.CHROMEDRIVER_EXE);
+		//		WebDriver driver = new ChromeDriver(new DesiredCapabilities().chrome());
+		//		driver.manage().window().maximize();
+		//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//		return driver;
 
-		if (!file.exists()) {
+		File file = null;
+		ChromeDriverService chromeService = null;
+		String os = System.getProperty("os.name").toLowerCase();
 
-			throw new Exception("Erro ao localizar o driver");
+		if (os.contains("win")){
+			//Operating system is based on Windows
+			file = new File(Constants.CHROMEDRIVER_EXE);
+
+			if (!file.exists()) {
+				throw new Exception("Erro ao localizar o driver");
+			}
+			chromeService = new ChromeDriverService.Builder()
+					.usingDriverExecutable(new File(Constants.CHROMEDRIVER_EXE))
+					.usingAnyFreePort().build();
+
+		} else if (os.contains("x") || os.contains("mac") || os.contains("osx")){
+			//Operating system is Apple OSX based
+			file = new File(Constants.CHROMEDRIVER_MAC);
+
+			if (!file.exists()) {
+				throw new Exception("Erro ao localizar o driver");
+			}
+			chromeService = new ChromeDriverService.Builder()
+					.usingDriverExecutable(new File(Constants.CHROMEDRIVER_MAC))
+					.usingAnyFreePort().build();
+
+		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
+			//Operating system is based on Linux/Unix/*AIX
+			file = new File(Constants.CHROMEDRIVER_LINUX);
+
+			if (!file.exists()) {
+				throw new Exception("Erro ao localizar o driver");
+			}
+			chromeService = new ChromeDriverService.Builder()
+					.usingDriverExecutable(new File(Constants.CHROMEDRIVER_LINUX))
+					.usingAnyFreePort().build();
 		}
-		
-		ChromeDriverService chromeService = new ChromeDriverService.Builder()
-				.usingDriverExecutable(new File(Constants.CHROMEDRIVER_EXE))
-				.usingAnyFreePort().build();
 
 		chromeService.start();
-		
+
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		capabilities.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "about:blank");
 
 		RemoteWebDriver driver = new RemoteWebDriver(chromeService.getUrl(), capabilities);
-		
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
+
 		return driver;
 	}
-		
+
 	public static AppiumServer initializeServer() throws ExecuteException, IOException, InterruptedException, URISyntaxException{
 
-		//Utils.uninstallAppiumSettingsApp();
+		Utils.uninstallAppiumSettingsApp();
 		stopServer();
 		ServerArguments serverArguments = new ServerArguments();
 		serverArguments.setArgument("--port", 4723);
 		serverArguments.setArgument("--local-timezone", true);
 		serverArguments.setArgument("--address", "127.0.0.1");
-		AppiumServer appiumServer = new AppiumServer(new File("C:\\Program Files (x86)\\Appium"), serverArguments);
+		AppiumServer appiumServer = null;
+		
+		String os = System.getProperty("os.name").toLowerCase();
+		
+		if(os.contains("win")){
+			appiumServer = new AppiumServer(new File("C:\\Program Files (x86)\\Appium"), serverArguments);
+		} else if(os.contains("x") || os.contains("mac")|| os.contains("osx")){
+			appiumServer = new AppiumServer(new File("/Applications/Appium.app/Contents/Resources/"), 
+					new File("/Applications/Appium.app/Contents/Resources/app/node_modules/appium/build/lib/main.js"), serverArguments);
+		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
+			appiumServer = new AppiumServer(new File("~/Applications/Appium.app"), serverArguments);
+		}
+		
 		appiumServer.startServer(60000);
 		return appiumServer;
 	}
-	
+
 	public static void stopServer() throws IOException{
 
-		StringBuilder command = new StringBuilder();
-		command.append("cmd /c echo off")
-		.append(" & ")
-		.append("FOR /F \"usebackq tokens=5\" %p in (`netstat -nao ^| findstr /R /C:\"4723\"`) ")
-		.append("do (FOR /F \"usebackq\" %t in (`TASKLIST /FI \"PID eq %p\" ^| findstr /I node.exe`) ")
-		.append("do taskkill /F /PID %p)");
+		String os = System.getProperty("os.name").toLowerCase();
+		Process proc = null;
 
-		Runtime.getRuntime().exec(command.toString());
+		if (os.contains("win")){
+			StringBuilder command = new StringBuilder();
+			command.append("cmd /c echo off")
+			.append(" & ")
+			.append("FOR /F \"usebackq tokens=5\" %p in (`netstat -nao ^| findstr /R /C:\"4723\"`) ")
+			.append("do (FOR /F \"usebackq\" %t in (`TASKLIST /FI \"PID eq %p\" ^| findstr /I node.exe`) ")
+			.append("do taskkill /F /PID %p)");
+
+			Runtime.getRuntime().exec(command.toString());
+
+		} else if (os.contains("x") || os.contains("mac") || os.contains("osx")){
+			Runtime.getRuntime().exec("killall node");
+
+		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
+			Runtime.getRuntime().exec("killall node");
+
+		}
 
 	}
-	
-//	public static void closeEmulator() throws FileNotFoundException, IOException, URISyntaxException{
-//		Runtime.getRuntime().exec(carregarLinks().getProperty(ViewConstants.Commands.ADB_PATH)+"adb emu kill");
-//	}
-	
+
+	public static void closeEmulator() throws FileNotFoundException, IOException, URISyntaxException{
+
+		String os = System.getProperty("os.name").toLowerCase();
+
+		if (os.contains("win")){
+			Runtime.getRuntime().exec(Constants.ADB_PATH_WIN+"adb emu kill");
+			
+		} else if (os.contains("x") || os.contains("mac") || os.contains("osx")){
+			Runtime.getRuntime().exec(Constants.ADB_PATH_MAC+"adb emu kill");
+
+		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
+			Runtime.getRuntime().exec(Constants.ADB_PATH_LINUX+"adb emu kill");
+		}
+	}
+
 	public static WebDriver initializeiOSDriver(String deviceName, String appPath) throws InterruptedException, IOException {
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(MobileCapabilityType.PLATFORM,"iOS");
-		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1");
-		if (deviceName == null)	caps.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 6 Plus"); else caps.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);//nome do dispositivo
+		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.4");
+		if (deviceName == null)	caps.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone X"); else caps.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);//nome do dispositivo
 		caps.setCapability(MobileCapabilityType.APP, appPath);
-		//caps.setCapability(MobileCapabilityType.UDID, "8ab872d5a64f6e7fdcc7b5dab6c4914cb4b05ccf");
+		caps.setCapability(MobileCapabilityType.UDID, "B98F5B4D-DAD9-40ED-9D8F-74BB618AE4D7");
 
 		Runtime.getRuntime().exec("open -a Simulator --args");
 
 		return new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 	}
-	
+
 	public static boolean verificarSeHaDispositivosAndroidAtivos() throws IOException, URISyntaxException{
 
-		Process proc = Runtime.getRuntime().exec(Constants.Commands.ADB_PATH+"adb shell getprop init.svc.bootanim");
+		String os = System.getProperty("os.name").toLowerCase();
+		Process proc = null;
+
+		if (os.contains("win")){
+			proc = Runtime.getRuntime().exec(Constants.ADB_PATH_WIN+" adb shell getprop init.svc.bootanim");		    
+
+		} else if (os.contains("x") || os.contains("mac") || os.contains("osx")){
+			String[] args = new String[] {"/bin/bash", "-l", "-c", Constants.ADB_PATH_MAC + "adb shell getprop init.svc.bootanim"};
+			proc = new ProcessBuilder(args).start();
+
+		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
+			proc = Runtime.getRuntime().exec(Constants.ADB_PATH_LINUX+" adb shell getprop init.svc.bootanim");
+
+		}
+
 		BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
 		try{
@@ -396,10 +473,24 @@ public class Utils {
 
 		return false;
 	}
-	
+
 	private static String aguardarDispositivoAndroidLigar() throws IOException, InterruptedException, URISyntaxException{
 
-		Process proc = Runtime.getRuntime().exec(Constants.Commands.ADB_PATH+"adb shell getprop init.svc.bootanim");
+		String os = System.getProperty("os.name").toLowerCase();
+		Process proc = null;
+
+		if (os.contains("win")){
+			proc = Runtime.getRuntime().exec(Constants.ADB_PATH_WIN+" adb shell getprop init.svc.bootanim");		    
+
+		} else if (os.contains("x") || os.contains("mac") || os.contains("osx")){
+			String[] args = new String[] {"/bin/bash", "-l", "-c", Constants.ADB_PATH_MAC +"adb shell getprop init.svc.bootanim"};
+			proc = new ProcessBuilder(args).start();
+
+		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
+			String[] args = new String[] {"/bin/bash", "-l", "-c", Constants.ADB_PATH_LINUX, " adb shell getprop init.svc.bootanim"};
+			proc = new ProcessBuilder(args).start();
+
+		}
 
 		BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 		BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
@@ -425,19 +516,19 @@ public class Utils {
 		return "Dispositivo Carregado!";
 
 	}
-	
+
 	public static AndroidDriver<AndroidElement> initializeAndroidDriver(String deviceName, String appPath) throws InterruptedException, IOException, URISyntaxException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		//caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "6.0");
 		caps.setCapability(MobileCapabilityType.PLATFORM,"Android");
 		caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 300);
-		
+
 		if (appPath == null) {
-			caps.setCapability(MobileCapabilityType.APP, "Browser");
-			caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
-			//caps.setCapability("package", "com.asus.calculator");
-			//caps.setCapability("activity", ".Calculator");
+			//caps.setCapability(MobileCapabilityType.APP, "com.google.android.apps.maps");
+			//caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
+			caps.setCapability("appPackage", "com.google.android.apps.maps");
+			caps.setCapability("appActivity", "com.google.android.maps.MapsActivity");
 		} else {
 			caps.setCapability(MobileCapabilityType.APP, new File(appPath).getAbsolutePath());
 			//caps.setCapability(MobileCapabilityType.APP_PACKAGE, Constants.pacote);
@@ -455,7 +546,26 @@ public class Utils {
 			driver.manage().timeouts().implicitlyWait(4, TimeUnit.MINUTES);
 			return driver;
 		} else {
-			Runtime.getRuntime().exec(Constants.Commands.EMULATOR_PATH+"emulator -netdelay none -netspeed full -no-boot-anim -avd Nexus_5X_API23");
+
+			String os = System.getProperty("os.name").toLowerCase();
+
+			if (os.contains("win")){
+				Runtime.getRuntime().exec(Constants.EMULATOR_PATH_WIN+
+						"emulator -netdelay none -netspeed full -no-boot-anim -avd Nexus_5X_API_25");		    
+
+			} else if (os.contains("x") || os.contains("mac") || os.contains("osx")){
+				String[] args = new String[] {"/bin/bash", "-l", "-c", 
+						Constants.EMULATOR_PATH_MAC +
+				"emulator -netdelay none -netspeed full -no-boot-anim -avd Nexus_5X_API_25"};
+				new ProcessBuilder(args).start();
+
+			} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
+				String[] args = new String[] {"/bin/bash", "-c", 
+						Constants.EMULATOR_PATH_LINUX, 
+				"emulator -netdelay none -netspeed full -no-boot-anim -avd Nexus_5X_API_25"};
+				new ProcessBuilder(args).start();			
+			}
+
 			System.out.println(aguardarDispositivoAndroidLigar());
 			AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(4, TimeUnit.MINUTES);
@@ -463,15 +573,37 @@ public class Utils {
 		}
 
 	}
-	
+
 	public static void uninstallAppiumSettingsApp() throws FileNotFoundException, IOException, URISyntaxException{
-		
-		//adb uninstall com.test.app
-		Runtime.getRuntime().exec(Constants.Commands.ADB_PATH+"adb uninstall io.appium.unlock");
-		Runtime.getRuntime().exec(Constants.Commands.ADB_PATH+"adb uninstall io.appium.settings");
-		
+
+		String os = System.getProperty("os.name").toLowerCase();
+		Process proc = null;
+
+		if (os.contains("win")){
+			//adb uninstall com.test.app
+			Runtime.getRuntime().exec(Constants.ADB_PATH_WIN+" adb uninstall io.appium.unlock");
+			Runtime.getRuntime().exec(Constants.ADB_PATH_WIN+" adb uninstall io.appium.settings");		    
+
+		} else if (os.contains("x") || os.contains("mac") || os.contains("osx")){
+			//adb uninstall com.test.app
+			String[] args = new String[] {"/bin/bash", "-l", "-c", Constants.ADB_PATH_MAC + "adb uninstall io.appium.unlock"};
+			new ProcessBuilder(args).start();
+
+			args = new String[] {"/bin/bash", "-l", "-c", Constants.ADB_PATH_MAC + "adb uninstall io.appium.settings"};
+			new ProcessBuilder(args).start();
+
+		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
+			//adb uninstall com.test.app
+			String[] args = new String[] {"/bin/bash", "-c", Constants.ADB_PATH_LINUX, " adb uninstall io.appium.unlock"};
+			new ProcessBuilder(args).start();
+
+			args = new String[] {"/bin/bash", "-c", Constants.ADB_PATH_LINUX, " adb uninstall io.appium.settings"};
+			new ProcessBuilder(args).start();
+
+		}
+
 	}
-	
-	
-	
+
+
+
 }
