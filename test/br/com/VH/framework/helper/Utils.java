@@ -1,51 +1,33 @@
 package br.com.VH.framework.helper;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.Inet4Address;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map.Entry;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import javax.imageio.ImageIO;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import javax.swing.JFrame;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.exec.ExecuteException;
 import org.apache.commons.lang3.StringUtils;
@@ -54,20 +36,14 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.github.genium_framework.appium.support.server.AppiumServer;
 import com.github.genium_framework.server.ServerArguments;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import br.com.VH.framework.config.Constants;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 /**
@@ -84,8 +60,6 @@ public class Utils {
 	private static final String DASH = "_";
 	private static final String BLANK = " ";
 	private static final String COMMA = ":";
-	private static Logger LOGGER = LoggerFactory.getLogger(Utils.class.getSimpleName());
-
 
 	public static boolean isNumeric(String value) {
 		return value.matches("[-+]?\\d*\\.?\\d+");	
@@ -377,13 +351,13 @@ public class Utils {
 		if(os.contains("win")){
 			appiumServer = new AppiumServer(new File("C:\\Program Files (x86)\\Appium"), serverArguments);
 		} else if(os.contains("x") || os.contains("mac")|| os.contains("osx")){
-			appiumServer = new AppiumServer(new File("/Applications/Appium.app/Contents/Resources/"), 
+			appiumServer = new AppiumServer(new File("/usr/local/bin/node"), 
 					new File("/Applications/Appium.app/Contents/Resources/app/node_modules/appium/build/lib/main.js"), serverArguments);
 		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
 			appiumServer = new AppiumServer(new File("~/Applications/Appium.app"), serverArguments);
 		}
 		
-		appiumServer.startServer(60000);
+		appiumServer.startServer(20000);
 		return appiumServer;
 	}
 
@@ -421,23 +395,36 @@ public class Utils {
 			
 		} else if (os.contains("x") || os.contains("mac") || os.contains("osx")){
 			Runtime.getRuntime().exec(Constants.ADB_PATH_MAC+"adb emu kill");
+			Runtime.getRuntime().exec("killall \"Simulator\"");
 
 		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
 			Runtime.getRuntime().exec(Constants.ADB_PATH_LINUX+"adb emu kill");
 		}
 	}
 
-	public static WebDriver initializeiOSDriver(String deviceName, String appPath) throws InterruptedException, IOException {
+	public static IOSDriver<MobileElement> initializeiOSDriver(String deviceName, String appPath) throws InterruptedException, IOException {
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability(MobileCapabilityType.PLATFORM,"iOS");
-		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.4");
-		if (deviceName == null)	caps.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone X"); else caps.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);//nome do dispositivo
-		caps.setCapability(MobileCapabilityType.APP, appPath);
-		caps.setCapability(MobileCapabilityType.UDID, "B98F5B4D-DAD9-40ED-9D8F-74BB618AE4D7");
+		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.1");
+		
+		if (deviceName == null) {
+			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone XR"); 
+		} else {
+			caps.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
+		}
+		
+		if (appPath == null){
+			caps.setCapability("bundleId", "com.apple.Maps");
+		} else {
+			caps.setCapability(MobileCapabilityType.APP, appPath);			
+		}
+	
+		//caps.setCapability(MobileCapabilityType.UDID, "F60D6E1D-3C03-4D99-AEF6-90E79E5D3CE8");
 
 		Runtime.getRuntime().exec("open -a Simulator --args");
 
-		return new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+		IOSDriver<MobileElement> driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return driver;
 	}
 
 	public static boolean verificarSeHaDispositivosAndroidAtivos() throws IOException, URISyntaxException{
@@ -517,7 +504,7 @@ public class Utils {
 
 	}
 
-	public static AndroidDriver<AndroidElement> initializeAndroidDriver(String deviceName, String appPath) throws InterruptedException, IOException, URISyntaxException {
+	public static AndroidDriver<MobileElement> initializeAndroidDriver(String deviceName, String appPath) throws InterruptedException, IOException, URISyntaxException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		//caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "6.0");
@@ -542,8 +529,8 @@ public class Utils {
 		}
 
 		if(verificarSeHaDispositivosAndroidAtivos()){
-			AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
-			driver.manage().timeouts().implicitlyWait(4, TimeUnit.MINUTES);
+			AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			return driver;
 		} else {
 
@@ -567,7 +554,7 @@ public class Utils {
 			}
 
 			System.out.println(aguardarDispositivoAndroidLigar());
-			AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+			AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(4, TimeUnit.MINUTES);
 			return driver;
 		}

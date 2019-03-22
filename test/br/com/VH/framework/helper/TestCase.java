@@ -16,10 +16,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import br.com.VH.framework.config.Constants;
 
-public class TestCase {
+public class TestCase extends PageFactory {
 
 	/**
 	 * @author Gabriel Fragra 

@@ -1,38 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" ignored="0" total="1" passed="0">
+<testng-results skipped="2" failed="0" ignored="0" total="3" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="152532" started-at="2019-03-20T18:40:17Z" finished-at="2019-03-20T18:42:49Z">
+  <suite name="Suite regressivo" duration-ms="18311" started-at="2019-03-22T18:45:55Z" finished-at="2019-03-22T18:46:13Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="152532" started-at="2019-03-20T18:40:17Z" finished-at="2019-03-20T18:42:49Z">
-      <class name="br.com.VH.framework.tests.mobile.AccessGooglePageAndroid">
-        <test-method status="FAIL" signature="preRequisites()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGooglePageAndroid@14bf9759]" name="preRequisites" is-config="true" duration-ms="152448" started-at="2019-03-20T18:40:17Z" finished-at="2019-03-20T18:42:49Z">
+    <test name="Acessar a pagina da google via browser Chrome em desktop" duration-ms="6106" started-at="2019-03-22T18:45:55Z" finished-at="2019-03-22T18:46:01Z">
+      <class name="br.com.VH.framework.tests.web.AccessGooglePage">
+        <test-method status="PASS" signature="preRequisites()[pri:0, instance:br.com.VH.framework.tests.web.AccessGooglePage@4dfa3a9d]" name="preRequisites" is-config="true" duration-ms="2588" started-at="2019-03-22T18:45:55Z" finished-at="2019-03-22T18:45:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preRequisites -->
+        <test-method status="PASS" signature="prepareTests()[pri:0, instance:br.com.VH.framework.tests.web.AccessGooglePage@4dfa3a9d]" name="prepareTests" is-config="true" duration-ms="0" started-at="2019-03-22T18:45:57Z" finished-at="2019-03-22T18:45:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTests -->
+        <test-method status="PASS" signature="accessGooglePage()[pri:0, instance:br.com.VH.framework.tests.web.AccessGooglePage@4dfa3a9d]" name="accessGooglePage" duration-ms="3270" started-at="2019-03-22T18:45:57Z" finished-at="2019-03-22T18:46:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accessGooglePage -->
+        <test-method status="PASS" signature="finishTests()[pri:0, instance:br.com.VH.framework.tests.web.AccessGooglePage@4dfa3a9d]" name="finishTests" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:01Z" finished-at="2019-03-22T18:46:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finishTests -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:br.com.VH.framework.tests.web.AccessGooglePage@4dfa3a9d]" name="afterTest" is-config="true" duration-ms="203" started-at="2019-03-22T18:46:01Z" finished-at="2019-03-22T18:46:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- br.com.VH.framework.tests.web.AccessGooglePage -->
+    </test> <!-- Acessar a pagina da google via browser Chrome em desktop -->
+    <test name="Acessar o app google maps via android" duration-ms="11871" started-at="2019-03-22T18:46:01Z" finished-at="2019-03-22T18:46:13Z">
+      <class name="br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid">
+        <test-method status="FAIL" signature="preRequisites()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid@6d7b4f4c]" name="preRequisites" is-config="true" duration-ms="11842" started-at="2019-03-22T18:46:01Z" finished-at="2019-03-22T18:46:13Z">
           <exception class="org.openqa.selenium.SessionNotCreatedException">
             <message>
-              <![CDATA[Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+              <![CDATA[Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
     at getResponseForW3CError (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:826:9)
     at asyncHandler (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:447:37)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at <anonymous>
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
     at getResponseForW3CError (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:826:9)
     at asyncHandler (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:447:37)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at <anonymous>
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver
 at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:208)
 at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:217)
@@ -47,8 +71,8 @@ at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileD
 at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:84)
 at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:94)
 at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:95)
-at br.com.VH.framework.helper.Utils.initializeAndroidDriver(Utils.java:545)
-at br.com.VH.framework.tests.mobile.AccessGooglePageAndroid.preRequisites(AccessGooglePageAndroid.java:48)
+at br.com.VH.framework.helper.Utils.initializeAndroidDriver(Utils.java:557)
+at br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid.preRequisites(AccessGoogleMapsAndroid.java:48)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -80,14 +104,14 @@ at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.
 at java.lang.reflect.Method.invoke(Method.java:498)
 at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:186)
 ... 38 more
-Caused by: org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+Caused by: org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
     at getResponseForW3CError (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:826:9)
     at asyncHandler (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:447:37)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at <anonymous>
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -112,40 +136,40 @@ at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preRequisites -->
-        <test-method status="SKIP" signature="prepareTests()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGooglePageAndroid@14bf9759]" name="prepareTests" is-config="true" duration-ms="0" started-at="2019-03-20T18:42:49Z" finished-at="2019-03-20T18:42:49Z">
+        <test-method status="SKIP" signature="prepareTests()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid@6d7b4f4c]" name="prepareTests" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- prepareTests -->
-        <test-method status="SKIP" signature="setUpTest()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGooglePageAndroid@14bf9759]" name="setUpTest" is-config="true" duration-ms="0" started-at="2019-03-20T18:42:49Z" finished-at="2019-03-20T18:42:49Z">
+        <test-method status="SKIP" signature="setUpTest()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid@6d7b4f4c]" name="setUpTest" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpTest -->
-        <test-method status="SKIP" signature="accessGooglePage()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGooglePageAndroid@14bf9759]" name="accessGooglePage" duration-ms="0" started-at="2019-03-20T18:42:49Z" finished-at="2019-03-20T18:42:49Z">
+        <test-method status="SKIP" signature="accessGooglePage()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid@6d7b4f4c]" name="accessGooglePage" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
           <exception class="org.openqa.selenium.SessionNotCreatedException">
             <message>
-              <![CDATA[Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+              <![CDATA[Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
     at getResponseForW3CError (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:826:9)
     at asyncHandler (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:447:37)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at <anonymous>
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
     at getResponseForW3CError (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:826:9)
     at asyncHandler (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:447:37)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at <anonymous>
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver
 at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:208)
 at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:217)
@@ -160,8 +184,8 @@ at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileD
 at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:84)
 at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:94)
 at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:95)
-at br.com.VH.framework.helper.Utils.initializeAndroidDriver(Utils.java:545)
-at br.com.VH.framework.tests.mobile.AccessGooglePageAndroid.preRequisites(AccessGooglePageAndroid.java:48)
+at br.com.VH.framework.helper.Utils.initializeAndroidDriver(Utils.java:557)
+at br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid.preRequisites(AccessGoogleMapsAndroid.java:48)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -193,14 +217,14 @@ at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.
 at java.lang.reflect.Method.invoke(Method.java:498)
 at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:186)
 ... 38 more
-Caused by: org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+Caused by: org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:18e0:2d9e:aee5:aa63%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_101'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
 Driver info: driver.version: AndroidDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Error executing adbExec. Original error: 'Command '/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell wm size' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find adb Please set the ANDROID_HOME environment variable with the Android SDK root directory path.
     at getResponseForW3CError (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:826:9)
     at asyncHandler (/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:447:37)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at <anonymous>
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -225,19 +249,231 @@ at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.
           <reporter-output>
           </reporter-output>
         </test-method> <!-- accessGooglePage -->
-        <test-method status="SKIP" signature="tearDown()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGooglePageAndroid@14bf9759]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-03-20T18:42:49Z" finished-at="2019-03-20T18:42:49Z">
+        <test-method status="SKIP" signature="tearDown()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid@6d7b4f4c]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="finishTests()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGooglePageAndroid@14bf9759]" name="finishTests" is-config="true" duration-ms="0" started-at="2019-03-20T18:42:49Z" finished-at="2019-03-20T18:42:49Z">
+        <test-method status="SKIP" signature="finishTests()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid@6d7b4f4c]" name="finishTests" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finishTests -->
-        <test-method status="SKIP" signature="afterTest()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGooglePageAndroid@14bf9759]" name="afterTest" is-config="true" duration-ms="0" started-at="2019-03-20T18:42:49Z" finished-at="2019-03-20T18:42:49Z">
+        <test-method status="SKIP" signature="afterTest()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid@6d7b4f4c]" name="afterTest" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- br.com.VH.framework.tests.mobile.AccessGooglePageAndroid -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid -->
+    </test> <!-- Acessar o app google maps via android -->
+    <test name="Acessar o app Maps via iOS" duration-ms="274" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
+      <class name="br.com.VH.framework.tests.mobile.AccessMapsiOS">
+        <test-method status="FAIL" signature="preRequisites()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessMapsiOS@6536e911]" name="preRequisites" is-config="true" duration-ms="207" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[Connection refused
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
+Driver info: driver.version: IOSDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: Connection refused
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
+Driver info: driver.version: IOSDriver
+at io.appium.java_client.remote.AppiumCommandExecutor.lambda$5(AppiumCommandExecutor.java:251)
+at java.util.Optional.orElseGet(Optional.java:267)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileDriver.java:38)
+at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:84)
+at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:94)
+at io.appium.java_client.ios.IOSDriver.<init>(IOSDriver.java:95)
+at br.com.VH.framework.helper.Utils.initializeiOSDriver(Utils.java:425)
+at br.com.VH.framework.tests.mobile.AccessMapsiOS.preRequisites(AccessMapsiOS.java:45)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.TestRunner.beforeRun(TestRunner.java:529)
+at org.testng.TestRunner.run(TestRunner.java:497)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.net.ConnectException: Connection refused
+at java.net.PlainSocketImpl.socketConnect(Native Method)
+at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+at java.net.Socket.connect(Socket.java:589)
+at okhttp3.internal.platform.Platform.connectSocket(Platform.java:129)
+at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:245)
+at okhttp3.internal.connection.RealConnection.connect(RealConnection.java:165)
+at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:257)
+at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
+at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
+at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
+at okhttp3.RealCall.execute(RealCall.java:77)
+at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
+at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:105)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:186)
+at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:217)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preRequisites -->
+        <test-method status="SKIP" signature="prepareTests()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessMapsiOS@6536e911]" name="prepareTests" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTests -->
+        <test-method status="SKIP" signature="setUpTest()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessMapsiOS@6536e911]" name="setUpTest" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method status="SKIP" signature="accessGooglePage()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessMapsiOS@6536e911]" name="accessGooglePage" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[Connection refused
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
+Driver info: driver.version: IOSDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: Connection refused
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: '500010351072-NB.local', ip: 'fe80:0:0:0:1496:c7a9:696c:62c7%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '1.8.0_101'
+Driver info: driver.version: IOSDriver
+at io.appium.java_client.remote.AppiumCommandExecutor.lambda$5(AppiumCommandExecutor.java:251)
+at java.util.Optional.orElseGet(Optional.java:267)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileDriver.java:38)
+at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:84)
+at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:94)
+at io.appium.java_client.ios.IOSDriver.<init>(IOSDriver.java:95)
+at br.com.VH.framework.helper.Utils.initializeiOSDriver(Utils.java:425)
+at br.com.VH.framework.tests.mobile.AccessMapsiOS.preRequisites(AccessMapsiOS.java:45)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.TestRunner.beforeRun(TestRunner.java:529)
+at org.testng.TestRunner.run(TestRunner.java:497)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.net.ConnectException: Connection refused
+at java.net.PlainSocketImpl.socketConnect(Native Method)
+at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+at java.net.Socket.connect(Socket.java:589)
+at okhttp3.internal.platform.Platform.connectSocket(Platform.java:129)
+at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:245)
+at okhttp3.internal.connection.RealConnection.connect(RealConnection.java:165)
+at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:257)
+at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
+at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
+at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
+at okhttp3.RealCall.execute(RealCall.java:77)
+at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
+at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:105)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:186)
+at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:217)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accessGooglePage -->
+        <test-method status="SKIP" signature="tearDown()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessMapsiOS@6536e911]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="SKIP" signature="finishTests()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessMapsiOS@6536e911]" name="finishTests" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finishTests -->
+        <test-method status="SKIP" signature="afterTest()[pri:0, instance:br.com.VH.framework.tests.mobile.AccessMapsiOS@6536e911]" name="afterTest" is-config="true" duration-ms="0" started-at="2019-03-22T18:46:13Z" finished-at="2019-03-22T18:46:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- br.com.VH.framework.tests.mobile.AccessMapsiOS -->
+    </test> <!-- Acessar o app Maps via iOS -->
+  </suite> <!-- Suite regressivo -->
 </testng-results>

@@ -3,7 +3,6 @@ package br.com.VH.framework.tests.web;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -20,37 +19,35 @@ public class AccessGooglePage {
 
 	@BeforeClass
 	public void prepareTests() throws Exception {
-		// Opens browsers, etc
-		driver = Utils.initializeChromeDriver();
 	}
 
 	@AfterClass
 	public void finishTests() {
-		// Close browsers, etc
-		driver.close();
-		driver.quit();
 	}
 
 	@BeforeTest
-	public void preRequisites() {
+	public void preRequisites() throws Exception {
 		// Initialize variables, etc
 		url = "https://www.google.com.br";
 		search = "Gabriel Aguido Fraga";
+		driver = Utils.initializeChromeDriver();
 	}
 
 	@AfterTest
 	public void afterTest() {
 		// Validate and update results, gather information, etc
+		driver.close();
+		driver.quit();
 	}
 
 	@Test
 	public void accessGooglePage() throws IOException {
 		// Instantiate pages and execute test
-		GoogleHome gp = PageFactory.initElements(driver, GoogleHome.class);
-		gp.getDriver().get(url);
-		gp.clickOnSearchField();
-		gp.insertValueOnSearchField(search);
-		gp.saveScreenshot(driver);
+		GoogleHome gh = new GoogleHome(driver);
+		gh.getDriver().get(url);
+		gh.clickOnSearchField();
+		gh.insertValueOnSearchField(search);
+		gh.saveScreenshot(driver);
 	}
 
 }

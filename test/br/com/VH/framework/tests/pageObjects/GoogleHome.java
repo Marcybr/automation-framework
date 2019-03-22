@@ -3,13 +3,13 @@ package br.com.VH.framework.tests.pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import br.com.VH.framework.helper.TestCase;
+import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSFindAll;
-import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBys;
 
 public class GoogleHome extends TestCase {
 
@@ -20,8 +20,14 @@ public class GoogleHome extends TestCase {
 	@FindBy(name="q")
 	private WebElement seachField;
 	
+	public GoogleHome(MobileDriver<MobileElement> driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, GoogleHome.class);
+	}
+	
 	public GoogleHome(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(this.driver, this);
 	}
 
 	public WebDriver getDriver() {

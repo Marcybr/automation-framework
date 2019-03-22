@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name = "Suite Web de acesso a browsers">
-   <test name = "Acessar a pagina da google">
-      <classes>
-         <class name = "br.com.VH.framework.tests.web.AccessGooglePage"/>
-      </classes>
-   </test>
-</suite>	
+<suite name="Suite regressivo">
+	<test name="Acessar a pagina da google via browser Chrome em desktop">
+		<classes>
+			<class name="br.com.VH.framework.tests.web.AccessGooglePage" />
+		</classes>
+	</test>
+	<test name="Acessar o app google maps via android">
+		<classes>
+			<class name="br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid" />
+		</classes>
+	</test>
+	<test name="Acessar o app Maps via iOS">
+		<classes>
+			<class name="br.com.VH.framework.tests.mobile.AccessMapsiOS" />
+		</classes>
+	</test>
+
+</suite>
