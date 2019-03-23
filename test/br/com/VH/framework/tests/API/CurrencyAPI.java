@@ -7,17 +7,30 @@ import org.hamcrest.Matchers;
 
 public class CurrencyAPI {
 	
-	@Parameters("currencyType")
+	@Parameters("currencyTypeBRL")
 	@Test
-	public void test(String currencyType) {
+	public void testBRLcurrency(String currencyTypeBRL) {
 	         
 	    given().
-	        params("text", currencyType).
+	        params("text", currencyTypeBRL).
 	    when().
 	        get("https://api.exchangeratesapi.io/latest").
 	    then().
 	        assertThat().
-	        	body("$", Matchers.anything(currencyType));
+	        	body("$", Matchers.anything(currencyTypeBRL));
+	}
+	
+	@Parameters("currencyTypeCAD")
+	@Test
+	public void testCADcurrency(String currencyTypeCAD) {
+	         
+	    given().
+	        params("text", currencyTypeCAD).
+	    when().
+	        get("https://api.exchangeratesapi.io/latest").
+	    then().
+	        assertThat().
+	        	body("$", Matchers.anything(currencyTypeCAD));
 	}
 
 }

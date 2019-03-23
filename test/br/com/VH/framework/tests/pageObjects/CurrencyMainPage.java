@@ -14,9 +14,21 @@ public class CurrencyMainPage extends TestCase {
 	
 	private MobileDriver<MobileElement> driver;
 
-	@AndroidFindBy(id="currentCurrencyLabel")
-	@iOSXCUITFindBy(id="currentCurrencyLabel")
-	private MobileElement currentCurrencyLabel;
+	@AndroidFindBy(id="settingsCurrency")
+	@iOSXCUITFindBy(id="settingsCurrency")
+	private MobileElement settingsCurrencyButton;
+	
+	@AndroidFindBy(id="currentCurrency")
+	@iOSXCUITFindBy(id="currentCurrency")
+	private MobileElement currentCurrencyTitle;
+	
+	@AndroidFindBy(id="currencyLabel")
+	@iOSXCUITFindBy(id="currencyLabel")
+	private MobileElement currencyLabel;
+	
+	@AndroidFindBy(id="relatedCurrencyLabel")
+	@iOSXCUITFindBy(id="relatedCurrencyLabel")
+	private MobileElement relatedCurrencyLabel;
 	
 	public CurrencyMainPage(MobileDriver<MobileElement> driver) {
 		this.driver = driver;
@@ -31,4 +43,15 @@ public class CurrencyMainPage extends TestCase {
 		this.driver = driver;
 	}
 	
+	public void clickOnSettingsButton(){
+		settingsCurrencyButton.click();
+	}
+	
+	public void clickOnBRLCurrencyLabel(){
+		relatedCurrencyLabel.click();
+	}
+	
+	public String getTitle(){
+		return driver.getTitle();
+	}
 }

@@ -52,5 +52,9 @@ public class CurrencySettingsPage extends TestCase {
 		currentCurrencyTextField.click();
 		currentCurrencyTextField.sendKeys(keys);
 	}
+	
+	public String getTitle(){
+		return driver.getTitle();
+	}
 
 }

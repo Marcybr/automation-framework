@@ -17,16 +17,16 @@
 			<class name="br.com.VH.framework.tests.mobile.AccessMapsiOS" />
 		</classes>
 	</test>
-	<test name="Access and validate API using BRL">
+	<test name="Access Currancy app pages an iOS device">
 		<classes>
-			<class name="br.com.VH.framework.tests.API.CurrencyAPI" />
-			<parameter name="currencyType" value="BRL"></parameter>
+			<class name="br.com.VH.framework.tests.mobile.CurrencyMainPageTests" />
 		</classes>
 	</test>
-	<test name="Access and validate API using CAD">
+	<test name="Access and validate API">
 		<classes>
 			<class name="br.com.VH.framework.tests.API.CurrencyAPI" />
-			<parameter name="currencyType" value="CAD"></parameter>
+			<parameter name="currencyTypeBRL" value="BRL"></parameter>
+			<parameter name="currencyTypeCAD" value="CAD"></parameter>
 		</classes>
 	</test>
 	

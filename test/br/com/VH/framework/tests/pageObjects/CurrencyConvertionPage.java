@@ -14,9 +14,13 @@ public class CurrencyConvertionPage extends TestCase {
 	
 	private MobileDriver<MobileElement> driver;
 	
-	@AndroidFindBy(id="currentCurrencyLabel")
-	@iOSXCUITFindBy(id="currentCurrencyLabel")
-	private MobileElement currentCurrencyLabel;
+	@AndroidFindBy(id="currentCurrencyConvertionLabel")
+	@iOSXCUITFindBy(id="currentCurrencyConvertionLabel")
+	private MobileElement currentCurrencyConvertionLabel;
+	
+	@AndroidFindBy(id="valueTableView")
+	@iOSXCUITFindBy(id="valueTableView")
+	private MobileElement valueTableView;
 	
 	public CurrencyConvertionPage(MobileDriver<MobileElement> driver) {
 		this.driver = driver;
@@ -31,4 +35,7 @@ public class CurrencyConvertionPage extends TestCase {
 		this.driver = driver;
 	}
 	
+	public String getTitle(){
+		return driver.getTitle();
+	}
 }
