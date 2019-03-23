@@ -3,17 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="br.com.VH.framework.tests.mobile.AccessGooglePageiOS">
+      <class name="br.com.VH.framework.tests.mobile.AccessMapsiOS">
         <methods>
+          <include name="finishTests"/>
+          <include name="setUpTest"/>
+          <include name="afterTest"/>
+          <include name="tearDown"/>
           <include name="preRequisites"/>
           <include name="prepareTests"/>
-          <include name="tearDown"/>
           <include name="accessGooglePage"/>
-          <include name="afterTest"/>
-          <include name="setUpTest"/>
-          <include name="finishTests"/>
         </methods>
-      </class> <!-- br.com.VH.framework.tests.mobile.AccessGooglePageiOS -->
+      </class> <!-- br.com.VH.framework.tests.mobile.AccessMapsiOS -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

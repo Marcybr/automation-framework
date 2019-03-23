@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite regressivo">
-	<test name="Acessar a pagina da google via browser Chrome em desktop">
+<suite name="Regression Suit">
+	<test name="Access google page from a chrome browser using a desktop">
 		<classes>
 			<class name="br.com.VH.framework.tests.web.AccessGooglePage" />
 		</classes>
 	</test>
-	<test name="Acessar o app google maps via android">
+	<test name="Access google maps app from an android device">
 		<classes>
 			<class name="br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid" />
 		</classes>
 	</test>
-	<test name="Acessar o app Maps via iOS">
+	<test name="Access maps app from an iOS device">
 		<classes>
 			<class name="br.com.VH.framework.tests.mobile.AccessMapsiOS" />
 		</classes>
 	</test>
-
+	<test name="Access and validate API using BRL">
+		<classes>
+			<class name="br.com.VH.framework.tests.API.CurrencyAPI" />
+			<parameter name="currencyType" value="BRL"></parameter>
+		</classes>
+	</test>
+	<test name="Access and validate API using CAD">
+		<classes>
+			<class name="br.com.VH.framework.tests.API.CurrencyAPI" />
+			<parameter name="currencyType" value="CAD"></parameter>
+		</classes>
+	</test>
+	
 </suite>
