@@ -1,5 +1,11 @@
-/target/*
+/target/**
 /debug.log
-/test-output/*
-/bin/*
-/prints/*
+test-output/**
+/bin/**
+/prints/**
+*.class
+*.jar
+*.war
+*.ear
+*.logs
+*.iml
