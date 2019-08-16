@@ -1,4 +1,4 @@
-package br.com.VH.framework.helper;
+package br.com.framework.helper;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -40,15 +40,24 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.github.genium_framework.appium.support.server.AppiumServer;
 import com.github.genium_framework.server.ServerArguments;
 
-import br.com.VH.framework.config.Constants;
+import br.com.framework.config.Constants;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
+import java.nio.file.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
 /**
- * @author Gabriel Fraga
- * 
+ * @author marcia.cardoso
  * Essa classe tem como finalidade ser uma classe helper,
  * contendo varios metodos que podem ser usados por diversas classes de forma generica
  * 
@@ -61,6 +70,9 @@ public class Utils {
 	private static final String BLANK = " ";
 	private static final String COMMA = ":";
 
+
+	
+	
 	public static boolean isNumeric(String value) {
 		return value.matches("[-+]?\\d*\\.?\\d+");	
 	}
