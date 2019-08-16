@@ -1,11 +1,10 @@
-/target/**
+/target/
+/bin/
 /debug.log
-test-output/**
-/bin/**
-/prints/**
 *.class
 *.jar
 *.war
 *.ear
 *.logs
 *.iml
+/test-output/
