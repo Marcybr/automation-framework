@@ -2,32 +2,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression Suit">
-	<test name="Access google page from a chrome browser using a desktop">
+	<test name="Sucessfull login">
 		<classes>
-			<class name="br.com.VH.framework.tests.web.AccessGooglePage" />
+			<class name="br.com.framework.tests.web.TestsLoginPage" />
 		</classes>
 	</test>
-	<test name="Access google maps app from an android device">
+	<test name="Login failed">
 		<classes>
-			<class name="br.com.VH.framework.tests.mobile.AccessGoogleMapsAndroid" />
+			<class name="br.com.framework.tests.web.TestsLoginWrongCredentials" />
 		</classes>
 	</test>
-	<test name="Access maps app from an iOS device">
-		<classes>
-			<class name="br.com.VH.framework.tests.mobile.AccessMapsiOS" />
-		</classes>
-	</test>
-	<test name="Access Currancy app pages an iOS device">
-		<classes>
-			<class name="br.com.VH.framework.tests.mobile.CurrencyMainPageTests" />
-		</classes>
-	</test>
-	<test name="Access and validate API">
-		<classes>
-			<class name="br.com.VH.framework.tests.API.CurrencyAPI" />
-			<parameter name="currencyTypeBRL" value="BRL"></parameter>
-			<parameter name="currencyTypeCAD" value="CAD"></parameter>
-		</classes>
-	</test>
-	
+
 </suite>
