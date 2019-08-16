@@ -1,4 +1,4 @@
-package br.com.VH.framework.helper;
+package br.com.framework.helper;
 
 import java.awt.AWTException;
 import java.awt.image.BufferedImage;
@@ -18,7 +18,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import br.com.VH.framework.config.Constants;
+import br.com.framework.config.Constants;
 
 public class TestCase extends PageFactory {
 

@@ -1,4 +1,4 @@
-package br.com.VH.framework.config;
+package br.com.framework.config;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
