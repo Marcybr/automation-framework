@@ -1,1 +1,5 @@
 /target/
+/debug.log
+/test-output/
+/bin/
+/prints/
